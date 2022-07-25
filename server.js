@@ -3,7 +3,7 @@ const path = require('path');
 const { clog } = require('./middleware/clog');
 const api = require('./routes/index.js');
 // const wildcard = require('./public/404.html');
-const PORT = process.env.port || 3001;
+const PORT = process.env.PORT || 3001;
 
 const app = express();
 
@@ -27,7 +27,7 @@ app.get('/feedback', (req, res) =>
   res.sendFile(path.join(__dirname, '/public/pages/feedback.html'))
 );
 // Get route for wildcard
-app.get('/', (req, res) =>
+app.get('*', (req, res) =>
   res.sendFile(path.join(__dirname, '/public/404.html'))
 );
 app.listen(PORT, () =>
